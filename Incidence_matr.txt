@@ -1,0 +1,47 @@
+import pandas as pd
+df1=pd.read_csv("C:/Users/Aditya/Desktop/Doc1.txt",header=None)
+df2=pd.read_csv("C:/Users/Aditya/Desktop/Doc2.txt",header=None)
+print(df1)
+s1=""
+s2=""
+li1=[]
+li2=[]
+for i in df1[0]:
+    s1=s1.join(i.casefold())
+    
+for i in df2[0]:
+    s2=s2.join(i.casefold())    
+print(s1)
+print(s2)
+li1=s1.split()
+li2=s2.split()
+print(li1,li2)
+li3=[]
+for i in li1:
+    if i.casefold() not in li3:
+        li3.append(i.casefold())
+for i in li2:
+    if i.casefold() not in li3:
+        li3.append(i.casefold())
+print(li3)
+
+r=int(input("Enter the no of doc"))
+m=[]
+for i in li3:
+    a=[]
+    for j in range(r):
+        if j==0:
+            if i in li1:
+                a.append("1")
+            else:
+                a.append("0")
+        if j==1:
+            if i in li2:
+                a.append("1")
+            else:
+                a.append("0")
+        
+    m.append(a)
+
+        
+print(m)
